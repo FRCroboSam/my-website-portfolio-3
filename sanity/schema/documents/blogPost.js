@@ -1,3 +1,5 @@
+import  youtube from "../documents/youtube"
+
 export default {
     name: "blogPost",
     title: "Blog Post",
@@ -41,15 +43,26 @@ export default {
         },
       },
       {
+        name: "video",
+        title: "Video",
+        type: "youtube",
+        validation: (Rule) => Rule.required(),
+        options: {
+          hotspot: true,
+        },
+      },
+      {
         name: "content",
         title: "Content",
         type: "array",
         of: [
           { type: "block" },
           {
-            type: "image",
+            type: "image", 
           },
+          { type: "youtube"}
         ],
       },
+
     ],
   };

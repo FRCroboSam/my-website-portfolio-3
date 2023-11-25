@@ -5,6 +5,11 @@ import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import { tryGetImageDimensions } from "@sanity/asset-utils";
 import Image from "next/image";
+import YouTube from 'react-youtube'
+import getYouTubeId from 'get-youtube-id'
+import React from 'react'
+import YouTubePlayer from 'react-player/youtube'
+
 
 function ImageComponent({ value }) {
     const { width, height } = tryGetImageDimensions(value);
@@ -22,9 +27,12 @@ function ImageComponent({ value }) {
     );
   }
 
+function YoutubeComponent({ value }){
+  return <YoutubePlayer url={value.url}/>
+}
 const portableTextComponents = {
     types: {
-      image: ImageComponent,
+      image: ImageComponent,YoutubeComponent
     },
   };
 
