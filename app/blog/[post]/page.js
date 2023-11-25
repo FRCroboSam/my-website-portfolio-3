@@ -6,7 +6,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import { tryGetImageDimensions } from "@sanity/asset-utils";
 import Image from "next/image";
 import YouTube from 'react-youtube'
-import getYouTubeId from 'get-youtube-id'
+import getYouTubeID from 'get-youtube-id'
 import React from 'react'
 import YouTubePlayer from 'react-player/youtube'
 
@@ -27,17 +27,40 @@ function ImageComponent({ value }) {
     );
   }
 
-function YoutubeComponent({ value }){
-  return <YoutubePlayer url={value.url}/>
-}
+  
+  function YouTubePreview({ value }){
+
+    if(value && value.url){
+      const id = getYouTubeID(value.url);
+      const url = `https://www.youtube.com/embed/${id}`;
+      return (
+        <iframe
+          title="YouTube Preview"
+          width="560"
+          height="315"
+          src={url}
+          frameBorder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        />
+      );
+    }
+    else{
+      return <div>Missing YouTube URL</div>;
+    }
+
+
+  };
 const portableTextComponents = {
     types: {
-      image: ImageComponent,YoutubeComponent
+      image: ImageComponent,
+      video: YouTubePreview
     },
   };
 
   export default async function BlogPost({ params }){
     const post = await getBlogPost(params.post);
+    console.log("VIDEO: " + post.video)
+
     return (
       <Container>
         <div className="mx-auto max-w-5xl space-y-8 py-8">
@@ -58,6 +81,7 @@ async function getBlogPost(slug) {
     date,
     "slug":slug.current,
       image,
+      video,
       content
   }`;
 

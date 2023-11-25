@@ -1,4 +1,4 @@
-import  youtube from "../documents/youtube"
+import  video from "./video"
 
 export default {
     name: "blogPost",
@@ -45,7 +45,7 @@ export default {
       {
         name: "video",
         title: "Video",
-        type: "youtube",
+        type: "video",
         validation: (Rule) => Rule.required(),
         options: {
           hotspot: true,
@@ -60,7 +60,7 @@ export default {
           {
             type: "image", 
           },
-          { type: "youtube"}
+          { type: "video"}
         ],
       },
 
