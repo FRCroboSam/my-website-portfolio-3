@@ -32,5 +32,6 @@ async function getBlogPosts() {
   }`;
 
   const posts = await client.fetch(query);
+  console.log("POST LENGTH: " + posts.length)
   return posts;
 }
