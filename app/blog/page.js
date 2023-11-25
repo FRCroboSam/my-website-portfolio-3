@@ -27,8 +27,10 @@ async function getBlogPosts() {
     title,
     description,
     date,
+    video,
     "slug":slug.current,
       image,
+      video
   }`;
 
   const posts = await client.fetch(query);

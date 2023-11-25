@@ -22,7 +22,7 @@ async function getDogs() {
   const query = `*[_type == "photo"]{
     favorite,
     image,
-      description
+    description
   }`;
 
   const posts = await client.fetch(query);
