@@ -22,10 +22,10 @@ async function getBlogPosts() {
     title,
     description,
     date,
-    image
+    "slug":slug.current,
+      image
   }`;
 
   const posts = await client.fetch(query);
-  console.log(`Number of blog posts: ${posts.length}`);
   return posts;
 }
