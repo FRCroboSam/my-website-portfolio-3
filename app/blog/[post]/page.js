@@ -82,8 +82,8 @@ async function getBlogPost(slug) {
     video,
     "slug":slug.current,
       image,
-      video,
-      content
+        video,
+          content
   }`;
 
   const posts = await client.fetch(query, { thisIsMySlug: slug });
