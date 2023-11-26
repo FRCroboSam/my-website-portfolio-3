@@ -59,7 +59,7 @@ const portableTextComponents = {
 
   export default async function BlogPost({ params }){
     const post = await getBlogPost(params.post);
-    console.log("VIDEO: " + post.video)
+    // console.log("VIDEO: " + post.video)
 
     return (
       <Container>
@@ -79,6 +79,7 @@ async function getBlogPost(slug) {
     title,
     description,
     date,
+    video,
     "slug":slug.current,
       image,
       video,
