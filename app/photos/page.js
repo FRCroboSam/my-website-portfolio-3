@@ -1,12 +1,30 @@
+'use client';
 import Container from "../components/Container";
 import { client } from "@/sanity/lib/client";
 import Photo from "../components/PhotoCard"
 export default async function Photos() {
+   function onClick2(){
+    alert("YOU CLICKED ME")
+   }
+    // Add the logic you want to execute on click here
+    function Popup({ clue, onClick }) {
+      return (
+        <>
+          <div className="Overlay" />
+          <div className="Popup">
+            {`This is the popup with clue: ${clue}`}
+            <button onClick={onClick}>Close Popup</button>
+          </div>
+        </>
+      );
+    }
 
   const dogs = await getDogs();
   return (
     <Container>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4" 
+           onClick={onClick2}
+      >
 
         {dogs.map((dog) => (
           <Photo key={dog.description} photo={dog}/>
@@ -19,6 +37,7 @@ export default async function Photos() {
 
 
 async function getDogs() {
+  console.log("GETTING QUERIES")
   const query = `*[_type == "photo"]{
       favorite,
     image,

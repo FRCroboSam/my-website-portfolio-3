@@ -1,14 +1,21 @@
 
+
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 
 export default function Photo({ photo }) {
+
+  function handleClick(){
+    console.log("Photo CLICKED");
+    // Add the logic you want to execute on click here
+  };
   return (
-    <div className="space-y-2 group">
+    <div className="space-y-2 group" onClick={handleClick}>
       <Image
         src={urlForImage(photo.image).auto("format").size(1920, 1080).url()}
         width={1920}
         height={1080}
+        onClick={handleClick}
         alt={photo.description}
         className="rounded-2xl border border-primary-400 md:group-hover:scale-95 transition-transform transform"
       />
