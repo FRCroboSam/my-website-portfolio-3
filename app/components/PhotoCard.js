@@ -15,7 +15,7 @@ export default function Photo({ photo }) {
         src={urlForImage(photo.image).auto("format").size(1920, 1080).url()}
         width={1920}
         height={1080}
-        onClick={handleClick}
+        // onClick={handleClick}
         alt={photo.description}
         className="rounded-2xl border border-primary-400 md:group-hover:scale-95 transition-transform transform"
       />
