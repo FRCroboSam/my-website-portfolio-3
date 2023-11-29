@@ -1,7 +1,7 @@
 // Import React at the beginning
-'use client';
+'use client'; //means you cant call 
 import React from 'react';
-
+//SWR client side calls without doing that 
 // Import Container component
 import Container from "./components/Container";
 
