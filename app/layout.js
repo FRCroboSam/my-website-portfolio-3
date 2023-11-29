@@ -17,7 +17,6 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <AnalyticsWrapper />
-        <Analytics />
       </body>
     </html>
   )
