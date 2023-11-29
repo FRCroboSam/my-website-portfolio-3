@@ -1,7 +1,7 @@
 import {Roboto } from 'next/font/google'
 import './globals.css'
 import Navbar from "./components/Navbar";
-import { AnalyticsWrapper } from './components/analytics';
+import { AnalyticsWrapper } from './components/Analytics2';
 
  
 const roboto = Roboto({
