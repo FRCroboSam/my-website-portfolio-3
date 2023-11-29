@@ -10,7 +10,7 @@ export default function Photo({ photo }) {
     // Add the logic you want to execute on click here
   };
   return (
-    <div className="space-y-2 group" onClick={handleClick}>
+    <div className="space-y-2 group" >
       <Image
         src={urlForImage(photo.image).auto("format").size(1920, 1080).url()}
         width={1920}
