@@ -1,9 +1,8 @@
-'use client';
 
 import {Roboto } from 'next/font/google'
 import './globals.css'
 import Navbar from "./components/Navbar";
-import { Analytics } from '@vercel/analytics/react';// import { Analytics } from '@vercel/analytics/react'
+ import { AnalyticsWrapper } from './components/Analytics2'
  
 const roboto = Roboto({
   weight: '100',
@@ -17,7 +16,7 @@ export default function RootLayout({ children }) {
       <body>
         <Navbar />
         {children}
-        <Analytics />
+        <AnalyticsWrapper />
       </body>
     </html>
   )
