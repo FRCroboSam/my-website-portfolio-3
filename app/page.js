@@ -4,9 +4,10 @@ import React from 'react';
 //SWR client side calls without doing that 
 // Import Container component
 import Container from "./components/Container";
+import Blog from './blog/page';
 import FrontPage from './components/FrontPage';
 import { client } from "@/sanity/lib/client";
-
+import ProjectTab from './components/projectTab';
 // Define Popup component
 function Popup({ clue, onClick }) {
   return (
@@ -30,6 +31,19 @@ export async function FrontPage2() {
   );
 }
 
+export async function Projects(){
+  const projects = await getProjects(); 
+  return (
+    <Container>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {projects.map((project) => (
+            <ProjectTab key={project.slug} project={project} />
+        ))}
+      </div>
+    </Container>
+  );
+}
+
 async function getFrontPage() {
   const query = `*[_type == "frontPage"][0] {
     title,
@@ -42,11 +56,27 @@ async function getFrontPage() {
   return frontPage;
 }
 
+async function getProjects(){
+  const query = `*[_type == "Project"] {
+    projectName,
+    projectDescription,  
+    dateStarted,
+    projectImage
+  }`;
+
+  const projects = await client.fetch(query);
+  console.log(projects[0].projectImage)
+
+  return projects;
+}
+
 // Define Home component
 export default function Home() {
   return (
     <Container>
-      <FrontPage2 />
+      {/* <FrontPage2 />
+      <Projects /> */}
+      <Blog />
     </Container>
   );
 }

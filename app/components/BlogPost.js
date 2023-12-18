@@ -8,15 +8,19 @@ export default function BlogPostCard({ post }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="space-y-4 md:hover:opacity-75 transition-opacity"
+      className="group space-y-4 md:hover:opacity-75 transition-opacity"
     >
-      <Image
-        src={urlForImage(post.image).auto("format").size(1920, 1080).url()}
-        width={1920}
-        height={1080}
-        alt={post.title}
-        className="rounded-2xl border border-primary-400"
-      />
+      <div className="max-w-[1920px] max-h-[1080px] overflow-hidden cursor-pointer rounded">
+        <div className="group-hover:scale-110 group-hover:rounded overflow-hidden transition duration-500">
+          <Image
+            src={urlForImage(post.image).auto("format").size(1920, 1080).url()}
+            width={1920}
+            height={1080}
+            alt={post.title}
+            className="w-full h-full object-cover rounded"
+          />
+        </div>
+      </div>
       <div className="space-y-2">
         {console.log("POST DESCP: " + post.description)}
         {console.log("POST Date: " + post.date)}
