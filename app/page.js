@@ -7,7 +7,7 @@ import Container from "./components/Container";
 import Blog from './blog/page';
 import FrontPage from './components/FrontPage';
 import { client } from "@/sanity/lib/client";
-import ProjectTab from './components/projectTab';
+import ProjectTab from './components/ProjectTab2';
 // Define Popup component
 function Popup({ clue, onClick }) {
   return (

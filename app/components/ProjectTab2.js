@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
 import DatePill from "./DatePill";
-export default function ProjectTab({ project }) {
+export default function ProjectTab2({ project }) {
     return (
       <div>
         <Image
