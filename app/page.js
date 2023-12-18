@@ -5,7 +5,6 @@ import React from 'react';
 // Import Container component
 import Container from "./components/Container";
 import Blog from './blog/page';
-import FrontPage from './components/FrontPage';
 import { client } from "@/sanity/lib/client";
 // Define Popup component
 function Popup({ clue, onClick }) {
